@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the PostgreSQL backup daily
+
+[Timer]
+OnCalendar=*-*-* 02:00:00 UTC
+Persistent=true
+Unit=postgresql-backup.service
+
+[Install]
+WantedBy=timers.target

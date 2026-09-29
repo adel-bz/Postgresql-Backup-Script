@@ -1,0 +1,11 @@
+[Unit]
+Description=Back up a PostgreSQL database to Amazon S3
+Wants=docker.service
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Nice=10
+ExecStart=/usr/local/sbin/backup-postgresql.sh
+TimeoutStartSec=0
