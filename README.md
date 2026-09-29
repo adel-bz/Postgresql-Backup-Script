@@ -114,25 +114,6 @@ webhook host. Notifications are sent after all local and S3 content checks
 pass, or after a failure. Notification errors do not change the backup result.
 Leave the setting `false` or leave the URL empty to disable notifications.
 
-## Restore
-
-Download an object and inspect it before restoring to a disposable test
-database:
-
-```bash
-aws s3 cp s3://BUCKET/database/YYYY-DD-MM.dump ./postgresql.dump
-docker cp ./postgresql.dump POSTGRES_CONTAINER:/tmp/postgresql.dump
-docker exec -u postgres POSTGRES_CONTAINER pg_restore --list /tmp/postgresql.dump
-docker exec -u postgres POSTGRES_CONTAINER createdb RESTORE_DATABASE
-docker exec -u postgres POSTGRES_CONTAINER pg_restore \
-  --dbname RESTORE_DATABASE --no-owner --no-acl --exit-on-error \
-  /tmp/postgresql.dump
-```
-
-Use a restore role and database appropriate for your environment. A successful
-upload and SHA-256 comparison prove that the transferred bytes match the
-source at backup time; only a restore test proves that the backup is usable.
-
 ## Security notes
 
 - The script uses a root-owned, mode `0600` settings file and a private
