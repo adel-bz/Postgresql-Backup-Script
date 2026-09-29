@@ -1,5 +1,7 @@
 # PostgreSQL backup script
 
+![PostgreSQL backup workflow: Docker database, custom dump, S3 upload, and downloaded SHA-256 verification](assets/backup-flow.svg)
+
 This example creates a PostgreSQL custom-format dump from a running Docker
 container, validates it, uploads it to Amazon S3, and verifies the bytes that
 were downloaded from S3. A systemd timer can run it once per day. CPU priority

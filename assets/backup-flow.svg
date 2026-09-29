@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 520" role="img" aria-labelledby="title description">
+  <title id="title">PostgreSQL backup to Amazon S3</title>
+  <desc id="description">A daily systemd timer starts a backup of PostgreSQL in Docker. The script creates a custom-format dump, uploads it to Amazon S3, downloads it to compare its size and SHA-256 hash, and can report status to Discord.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1224"/>
+      <stop offset="1" stop-color="#10233c"/>
+    </linearGradient>
+    <linearGradient id="accent" x2="1">
+      <stop offset="0" stop-color="#57d5c0"/>
+      <stop offset="1" stop-color="#75a9ff"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#315077" stroke-opacity=".18"/>
+    </pattern>
+    <clipPath id="canvas">
+      <rect width="1280" height="520" rx="28"/>
+    </clipPath>
+    <filter id="shadow" x="-20%" y="-25%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#020816" flood-opacity=".28"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#66c6d5"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="520" rx="28" fill="url(#background)"/>
+  <g clip-path="url(#canvas)">
+    <rect width="1280" height="520" fill="url(#grid)"/>
+    <circle cx="1140" cy="-55" r="260" fill="#255b92" opacity=".14"/>
+    <circle cx="94" cy="570" r="230" fill="#1d907f" opacity=".12"/>
+  </g>
+
+  <text x="56" y="70" fill="#f6f9ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="33" font-weight="700">PostgreSQL backup to S3</text>
+  <text x="57" y="105" fill="#afc1d8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17">A daily, verified database backup from Docker to object storage</text>
+  <rect x="1080" y="43" width="144" height="37" rx="18.5" fill="#173f4d" stroke="#389e9d"/>
+  <circle cx="1103" cy="61.5" r="5" fill="#57d5c0"/>
+  <text x="1118" y="67" fill="#b8f5e8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700">DAILY BACKUP</text>
+
+  <g fill="#172b45" stroke="#436382" stroke-width="1.4" filter="url(#shadow)">
+    <rect x="56" y="154" width="267" height="216" rx="18"/>
+    <rect x="356" y="154" width="267" height="216" rx="18"/>
+    <rect x="656" y="154" width="267" height="216" rx="18"/>
+    <rect x="956" y="154" width="267" height="216" rx="18"/>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Database cylinder -->
+    <ellipse cx="105" cy="202" rx="23" ry="8"/>
+    <path d="M82 202v32c0 5 10 9 23 9s23-4 23-9v-32M82 218c0 5 10 9 23 9s23-4 23-9"/>
+    <!-- Archive file -->
+    <path d="M385 182h31l14 14v42h-45zM416 182v15h14M394 209h26M394 220h21"/>
+    <!-- Cloud storage -->
+    <path d="M694 237h35c12 0 20-8 20-18 0-9-7-16-16-18-3-13-13-21-26-21-12 0-22 8-25 19-10 0-18 8-18 19 0 11 9 19 20 19h10"/>
+    <path d="M694 218v19M685 228l9 9 9-9"/>
+    <!-- Verification check -->
+    <circle cx="1005" cy="210" r="29"/>
+    <path d="m990 210 10 10 19-21"/>
+  </g>
+  <g fill="#f5f9ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-weight="700" font-size="23">
+    <text x="80" y="289">PostgreSQL</text>
+    <text x="380" y="289">Create dump</text>
+    <text x="680" y="289">Amazon S3</text>
+    <text x="980" y="289">Verify bytes</text>
+  </g>
+  <g fill="#afc1d8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17">
+    <text x="80" y="324">Database in Docker</text>
+    <text x="380" y="324">Custom-format archive</text>
+    <text x="680" y="324">Encrypted object</text>
+    <text x="980" y="324">Download + SHA-256</text>
+  </g>
+  <g fill="#91b9ce" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">
+    <text x="80" y="177">01 / SOURCE</text>
+    <text x="380" y="177">02 / BACKUP</text>
+    <text x="680" y="177">03 / UPLOAD</text>
+    <text x="980" y="177">04 / INTEGRITY</text>
+  </g>
+
+  <g stroke="#66c6d5" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M325 261h25"/>
+    <path d="M625 261h25"/>
+    <path d="M925 261h25"/>
+  </g>
+
+  <path d="M56 409h1168" stroke="#466784" stroke-opacity=".65"/>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">
+    <rect x="56" y="432" width="267" height="51" rx="14" fill="#183d4c" stroke="#317e84"/>
+    <circle cx="83" cy="457" r="11" fill="none" stroke="#63d3bf" stroke-width="2"/>
+    <path d="M83 450v8l5 3" fill="none" stroke="#63d3bf" stroke-width="2" stroke-linecap="round"/>
+    <text x="106" y="463" fill="#d4f5ed" font-weight="650">systemd timer</text>
+
+    <rect x="356" y="432" width="267" height="51" rx="14" fill="#193353" stroke="#3e6896"/>
+    <path d="M382 447h22v18h-22zM382 449l11 9 11-9" fill="none" stroke="#8ab9ff" stroke-width="2" stroke-linejoin="round"/>
+    <text x="418" y="463" fill="#dce9ff" font-weight="650">Discord status (optional)</text>
+  </g>
+  <text x="1224" y="462" fill="#8ea7c4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" text-anchor="end">Restore test still recommended</text>
+</svg>
